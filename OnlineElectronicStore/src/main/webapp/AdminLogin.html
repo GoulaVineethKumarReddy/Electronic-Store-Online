@@ -1,17 +1,183 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - ElectroStore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 420px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .login-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .login-header i {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .login-header p {
+            opacity: 0.9;
+            margin-top: 8px;
+            font-size: 1rem;
+        }
+
+        .login-body {
+            padding: 40px 35px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #444;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 45px 14px 50px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+        }
+
+        .form-group i {
+            position: absolute;
+            left: 16px;
+            top: 48px;
+            color: #888;
+            font-size: 1.2rem;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .back-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .login-header h1 { font-size: 1.9rem; }
+            .login-body { padding: 30px 25px; }
+        }
+    </style>
 </head>
-<body><center>
-	<h1>ADMIN LOGIN</h1><br><br>
-	<h2>
-	<form action="alog" method="post">
-		User Name :: <input type="text" name="aname"><br><br>
-		Password :: <input type="password" name="apwd"><br><br>
-		<input type="submit" value="Login"><br><br>
-	</form>
-	</h2>
+<body>
+
+    <div class="login-container">
+        <div class="login-header">
+            <i class="fas fa-user-shield"></i>
+            <h1>Admin Login</h1>
+            <p>Access the management dashboard</p>
+        </div>
+
+        <div class="login-body">
+            <form action="alog" method="post">
+                <div class="form-group">
+                    <label for="aname">Username</label>
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="aname" name="aname" required placeholder="Enter admin username">
+                </div>
+
+                <div class="form-group">
+                    <label for="apwd">Password</label>
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="apwd" name="apwd" required placeholder="Enter your password">
+                </div>
+
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Login as Admin
+                </button>
+            </form>
+
+            <div class="back-link">
+                <a href="index.html">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

@@ -1,19 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Login - ElectroStore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+            width: 100%;
+            max-width: 460px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .login-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 50px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .login-header .icon {
+            font-size: 4.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .login-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .login-body {
+            padding: 45px 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #444;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px 50px;
+            border: 2px solid #e0e0e0;
+            border-radius: 14px;
+            font-size: 1.1rem;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #f5576c;
+            background: white;
+            box-shadow: 0 0 0 5px rgba(245, 87, 108, 0.2);
+        }
+
+        .form-group i {
+            position: absolute;
+            left: 18px;
+            top: 48px;
+            color: #f5576c;
+            font-size: 1.3rem;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+        }
+
+        .btn-login:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(245, 87, 108, 0.5);
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .register-link a {
+            color: #f5576c;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border: 2px solid #f5576c;
+            border-radius: 50px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .register-link a:hover {
+            background: #f5576c;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 480px) {
+            .login-header h1 { font-size: 2.1rem; }
+            .login-header .icon { font-size: 3.8rem; }
+            .login-body { padding: 35px 30px; }
+            .form-group input { padding: 14px 45px; }
+        }
+    </style>
 </head>
-<body><center>
-	<h1>CUSTOMER LOGIN</h1><br><br>
-	<h2>
-	<form action="clog" method="post">
-		User Name :: <input type="text" name="cname"><br><br>
-		Password :: <input type="password" name="cpwd"><br><br>
-		<input type="submit" value="Login"><br><br>
-	</form>
-		<u><a href="CustomerRegister.html">New Customer</a></u>
-	</h2>
-	
+<body>
+
+    <div class="login-container">
+        <div class="login-header">
+            <div class="icon">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <h1>Customer Login</h1>
+            <p>Welcome back! Please login to continue shopping</p>
+        </div>
+
+        <div class="login-body">
+            <form action="clog" method="post">
+                <div class="form-group">
+                    <label for="cname">Username</label>
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="cname" name="cname" required placeholder="Enter your username">
+                </div>
+
+                <div class="form-group">
+                    <label for="cpwd">Password</label>
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="cpwd" name="cpwd" required placeholder="Enter your password">
+                </div>
+
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Login Now
+                </button>
+            </form>
+
+            <div class="register-link">
+                <a href="CustomerRegister.html">
+                    <i class="fas fa-user-plus"></i> New Customer? Register Here
+                </a>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

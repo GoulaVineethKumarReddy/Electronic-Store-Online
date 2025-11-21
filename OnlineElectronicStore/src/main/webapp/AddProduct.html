@@ -1,22 +1,196 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - ElectroStore Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .add-container {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+            width: 100%;
+            max-width: 550px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .add-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .add-header i {
+            font-size: 3.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .add-header h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+        }
+
+        .add-header p {
+            opacity: 0.9;
+            margin-top: 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-body {
+            padding: 40px 45px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 50px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #4facfe;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.2);
+        }
+
+        .form-group i {
+            position: absolute;
+            left: 18px;
+            top: 44px;
+            color: #888;
+            font-size: 1.2rem;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.3);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(79, 172, 254, 0.4);
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .back-link a {
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .add-header h1 { font-size: 2rem; }
+            .add-body { padding: 35px 30px; }
+            .form-group input { padding: 14px 45px; }
+        }
+    </style>
 </head>
 <body>
-	<center>
-		<h1>
-			<form action="aps" method="post">
-				Product Code <input type="text" name="pcode"><br><br>
-				Product Name <input type="text" name="pname"><br><br>
-				Product Company <input type="text" name="pcomp"><br><br>
-				Product Price <input type="text" name="pprice"><br><br>
-				Product Quantity <input type="text" name="pqty"><br><br>
-				<input type="submit" name="Submit"><br><br>
-				
-			</form>
-		</h1>
+
+    <div class="add-container">
+        <div class="add-header">
+            <i class="fas fa-box-open"></i>
+            <h1>Add New Product</h1>
+            <p>Fill in the details below</p>
+        </div>
+
+        <div class="add-body">
+            <form action="aps" method="post">
+                <div class="form-group">
+                    <label for="pcode">Product Code</label>
+                    <i class="fas fa-barcode"></i>
+                    <input type="text" id="pcode" name="pcode" required placeholder="e.g., LAP001">
+                </div>
+
+                <div class="form-group">
+                    <label for="pname">Product Name</label>
+                    <i class="fas fa-tag"></i>
+                    <input type="text" id="pname" name="pname" required placeholder="e.g., Dell XPS 13">
+                </div>
+
+                <div class="form-group">
+                    <label for="pcomp">Product Company</label>
+                    <i class="fas fa-building"></i>
+                    <input type="text" id="pcomp" name="pcomp" required placeholder="e.g., Dell Inc.">
+                </div>
+
+                <div class="form-group">
+                    <label for="pprice">Product Price (₹)</label>
+                    <i class="fas fa-rupee-sign"></i>
+                    <input type="number" id="pprice" name="pprice" required placeholder="e.g., 89990">
+                </div>
+
+                <div class="form-group">
+                    <label for="pqty">Quantity in Stock</label>
+                    <i class="fas fa-cubes"></i>
+                    <input type="number" id="pqty" name="pqty" required placeholder="e.g., 50" min="1">
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-plus-circle"></i> Add Product to Inventory
+                </button>
+            </form>
+
+            <div class="back-link">
+                <a href="view1">
+                    <i class="fas fa-arrow-left"></i> Back to Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
